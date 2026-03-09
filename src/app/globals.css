@@ -54,7 +54,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   /* Fonts */
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 
   /* Radius scale — derived from single --radius token */
@@ -96,32 +96,34 @@
   --radius: 0.5rem;
 
   /* ── Base Surfaces ───────────────────────────────────────── */
-  --background: oklch(1 0 0);
+  --background: oklch(0.995 0.003 65);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --surface-hover: oklch(0.96 0 0);
-  --surface-active: oklch(0.94 0 0);
+  --surface-hover: oklch(0.97 0.005 65);
+  --surface-active: oklch(0.95 0.005 65);
+
+  /* ── AESTHETIC: linear / DOMAIN: marketplace ─────────────────
+     Creative rationale: Warm amber primary on clean white — structured,
+     merchant-empowering admin platform. Inspired by Shopify Partners and
+     Stripe Dashboard's clear information hierarchy with warm accent tones. */
 
   /* ── Primary Color ───────────────────────────────────────────
-     !! OVERRIDE REQUIRED — Layout Builder must replace --primary and
-        --primary-h with domain-appropriate oklch values.
-        See the Creative Brief's colorDirection for the target color.
-        QA rejects builds where --primary stays oklch(0.205 0 0). !! */
-  --primary: oklch(0.205 0 0);
+     Warm amber: oklch(0.72 0.17 65) — marketplace trustworthiness + energy */
+  --primary: oklch(0.72 0.17 65);
   --primary-foreground: oklch(0.985 0 0);
-  --primary-h: 270; /* Integer hue extracted from --primary */
+  --primary-h: 65; /* Integer hue extracted from --primary */
 
   /* ── Derived Color Tokens ────────────────────────────────── */
   --section-dark: oklch(0.10 0.02 var(--primary-h));
-  --secondary: oklch(0.97 0 0);
+  --secondary: oklch(0.97 0.005 65);
   --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0.005 65);
+  --muted-foreground: oklch(0.52 0.02 65);
+  --accent: oklch(0.68 0.14 55);
+  --accent-foreground: oklch(0.985 0 0);
 
   /* ── Semantic Colors ─────────────────────────────────────── */
   --destructive: oklch(0.577 0.245 27.325);
@@ -131,29 +133,29 @@
   --warning-foreground: oklch(0.205 0 0);
 
   /* ── Borders & Inputs ────────────────────────────────────── */
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: oklch(0.91 0.01 65);
+  --input: oklch(0.91 0.01 65);
+  --ring: oklch(0.72 0.17 65);
 
   /* ── Chart Colors ────────────────────────────────────────────
-     Layout Builder harmonizes to primary hue. See design-system.md. */
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+     Harmonized to amber primary (hue 65). Rotate +30/-30 around wheel. */
+  --chart-1: oklch(0.72 0.17 65);   /* amber primary — hue 65 */
+  --chart-2: oklch(0.65 0.16 95);   /* yellow-green — hue 95 */
+  --chart-3: oklch(0.60 0.14 125);  /* green — hue 125 */
+  --chart-4: oklch(0.68 0.15 35);   /* orange — hue 35 */
+  --chart-5: oklch(0.62 0.13 5);    /* red-orange — hue 5 */
 
   /* ── Sidebar Colors ──────────────────────────────────────────
      After color override: --sidebar-primary and --sidebar-ring
      should match --primary.                                     */
-  --sidebar: oklch(0.985 0 0);
+  --sidebar: oklch(0.99 0.003 65);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary: oklch(0.72 0.17 65);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent: oklch(0.97 0.005 65);
   --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-border: oklch(0.91 0.01 65);
+  --sidebar-ring: oklch(0.72 0.17 65);
 
   /* ── Surface / Card Tokens ───────────────────────────────────
      Driven by [data-theme] aesthetic — not overridden per domain.
@@ -193,18 +195,15 @@
   --content-padding: 1.5rem;
   --nav-item-py: 0.5rem;
 
-  /* Sidebar surface — override to tint sidebar by domain:
-     White (default): oklch(1 0 0)
-     Tinted:          oklch(0.985 0.008 var(--primary-h))
-     Subdued:         oklch(0.97 0.005 var(--primary-h))          */
-  --sidebar-bg: oklch(1 0 0);
+  /* Sidebar surface — warm white tint matching background */
+  --sidebar-bg: oklch(0.99 0.003 65);
 
   /* Tab bar background — tint to primary hue subtly if desired */
   --tab-bar-bg: var(--background);
 
   /* ── Typography Tokens ───────────────────────────────────── */
-  --font-display: var(--font-geist-sans);
-  --font-body: var(--font-geist-sans);
+  --font-display: var(--font-inter);
+  --font-body: var(--font-inter);
   --heading-weight: 700;
   --heading-tracking: -0.025em;
   --heading-transform: none;
@@ -213,9 +212,10 @@
   --body-leading: 1.625;
 
   /* ── Motion Tokens ───────────────────────────────────────────
+     Motion character: snappy (120-150ms ease-out)
      All transitions in components use these — never hardcode
      duration-200+ or ease-in values directly.                   */
-  --dur-fast: 100ms;
+  --dur-fast: 120ms;
   --dur-normal: 150ms;
   --dur-slow: 250ms;
   --dur-deliberate: 400ms;
@@ -967,6 +967,23 @@
     box-shadow: 2px 2px 0 oklch(0.10 0 0);
   }
 
+}
+
+/* ── Fade-up entrance animation ────────────────────────────── */
+@keyframes fade-up-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up-in {
+  animation-name: fade-up-in;
+  animation-timing-function: ease-out;
 }
 
 /* ── Frame utility classes ─────────────────────────────────── */
